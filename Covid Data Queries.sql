@@ -1,3 +1,12 @@
+/*
+Data Exploration on Worldwide Covid 19 Data
+Period Covered by DataSet: 24-Feb-2020 to 08-Mar-2022
+Data Source: https://ourworldindata.org/covid-deaths
+
+Skills used: Data type conversion , Joins, CTE's, Temp Tables, Windows Functions, Aggregate Functions, Creating Views
+
+*/
+
 --SELECT *
 --FROM COVID_Deaths
 --ORDER BY 3,4
