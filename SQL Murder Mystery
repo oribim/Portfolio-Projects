@@ -42,4 +42,22 @@ WHERE pers.id = 14887 or pers.id = 16371
 SELECT person_id, id, name
 FROM get_fit_now_member
 WHERE membership_status = 'gold' and id like '48Z__' 
--- We have our 2 prime suspects "Joe Germuska" and "Jeremy Bowers"
+-- We have our 2 prime suspects "Joe Germuska" and "Jeremy Bowers".
+
+-- We know our murder suspect drives a car with a license plate that includes "H42W". We can pull up the car details for our key suspects from the drivers_license table.
+SELECT pers.id, pers.name, pers.license_id, dlic.plate_number
+FROM person pers
+JOIN drivers_license dlic
+ON pers.license_id=dlic.id
+WHERE pers.id LIKE '67318' and '28819'
+
+-- Jeremy Bowers drives a car with the partial plate number identified by our first witness.
+-- We can confirm by checking if Jeremy Bowers was at the gym on January 9th 2018 as seen by our second witness.
+SELECT gfnci.membership_id, gfnci.check_in_date, gfnm.name, gfnm.membership_status
+FROM get_fit_now_check_in gfnci
+JOIN get_fit_now_member gfnm
+ON gfnci.membership_id=gfnm.id
+WHERE gfnci.check_in_date = '20180109'
+
+-- It's confirmed. Jeremy Bowers was at the gym on the 9th of January, is a gold member at the gym, and his membership id and plate number match our witness descriptions.
+-- Jeremy Bowers is the murderer!!!
